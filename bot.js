@@ -1,14 +1,17 @@
 require("./lib/log.js");
 const Console = require("./lib/console.js");
+// Remotes.irc.com nickname + TOKEN 
 const $ = new (require("./lib/irc.js"))("nickname","YOUR_REMOTE_TOKEN_HERE");
 const tmi = require('tmi.js');
 
 const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
+		// Your Twitch Username + OAUTH Token
 		username: 'YOUR_USERNAME_HERE',
 		password: 'oauth:YOUR_OAUTH_HERE'
 	},
+	// Your Twitch Channel
 	channels: [ 'YourChannelHere' ]
 });
 
@@ -26,7 +29,7 @@ client.on('message', (channel, tags, message, self) => {
 });
 
 $.on('privmsg',(sender,target,msg) => { });
-	
+
 client.on('message', (channel, tags, message, self) => {
 	// Ignore echoed messages.
 	if(self) return;
