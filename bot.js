@@ -1,7 +1,6 @@
-require("./lib/log.js");
-const Console = require("./lib/console.js");
+const Console = require("lib/Console");
 // Remotes.irc.com nickname + TOKEN 
-const $ = new (require("./lib/irc.js"))("nickname","YOUR_REMOTE_TOKEN_HERE");
+const $ = new (require("lib/IRC"))("nickname","YOUR_REMOTE_TOKEN_HERE");
 const tmi = require('tmi.js');
 
 const client = new tmi.Client({
